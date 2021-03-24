@@ -1,0 +1,199 @@
+{
+    "name" : "恒昌大学",
+    "appid" : "__UNI__F6C36DA",
+    "description" : "恒昌大学",
+    "versionName" : "1.0.0",
+    "versionCode" : "100",
+    "transformPx" : false,
+    "networkTimeout" : {
+        "request" : 45000
+    },
+    "app-plus" : {
+        /* 5+App特有相关 */
+        "usingComponents" : true,
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : true,
+            "waiting" : true,
+            "autoclose" : true,
+            "delay" : 0
+        },
+        "modules" : {
+            "Payment" : {},
+            "Push" : {},
+            "VideoPlayer" : {},
+            "OAuth" : {}
+        },
+        /* 模块配置 */
+        "distribute" : {
+            /* 应用发布信息 */
+            "android" : {
+                /* android打包配置 */
+                "permissions" : [
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+                    "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+                ],
+                "abiFilters" : [ "armeabi-v7a" ]
+            },
+            "ios" : {},
+            /* ios打包配置 */
+            "sdkConfigs" : {
+                "oauth" : {},
+                "payment" : {
+                    "alipay" : {
+                        "__platform__" : [ "android" ]
+                    }
+                },
+                "push" : {},
+                "ad" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "static/icons/72x72.png",
+                    "xhdpi" : "static/icons/96x96.png",
+                    "xxhdpi" : "static/icons/144x144.png",
+                    "xxxhdpi" : "static/icons/192x192.png"
+                },
+                "ios" : {
+                    "appstore" : "static/icons/1024x1024.png",
+                    "ipad" : {
+                        "app" : "static/icons/76x76.png",
+                        "app@2x" : "static/icons/152x152.png",
+                        "notification" : "static/icons/20x20.png",
+                        "notification@2x" : "static/icons/40x40.png",
+                        "proapp@2x" : "static/icons/167x167.png",
+                        "settings" : "static/icons/29x29.png",
+                        "settings@2x" : "static/icons/58x58.png",
+                        "spotlight" : "static/icons/40x40.png",
+                        "spotlight@2x" : "static/icons/80x80.png"
+                    },
+                    "iphone" : {
+                        "app@2x" : "static/icons/120x120.png",
+                        "app@3x" : "static/icons/180x180.png",
+                        "notification@2x" : "static/icons/40x40.png",
+                        "notification@3x" : "static/icons/60x60.png",
+                        "settings@2x" : "static/icons/58x58.png",
+                        "settings@3x" : "static/icons/87x87.png",
+                        "spotlight@2x" : "static/icons/80x80.png",
+                        "spotlight@3x" : "static/icons/120x120.png"
+                    }
+                }
+            },
+            "splashscreen" : {
+                "android" : {
+                    "hdpi" : "static/page/480x762.png",
+                    "xhdpi" : "static/page/720x1420.png",
+                    "xxhdpi" : "static/page/1080x1882.png"
+                },
+                "ios" : {
+                    "iphone" : {
+                        "portrait-896h@3x" : "static/qdt.png",
+                        "landscape-896h@3x" : "static/qdt.png",
+                        "portrait-896h@2x" : "static/qdt.png",
+                        "landscape-896h@2x" : "static/qdt.png",
+                        "iphonex" : "static/qdt.png",
+                        "iphonexl" : "static/qdt.png",
+                        "retina55" : "static/qdt.png",
+                        "retina55l" : "static/qdt.png",
+                        "retina47" : "static/qdt.png",
+                        "retina47l" : "static/qdt.png",
+                        "retina40" : "static/qdt.png",
+                        "retina40l" : "static/qdt.png",
+                        "retina35" : "static/qdt.png"
+                    },
+                    "ipad" : {
+                        "portrait-1366h@2x" : "static/qdt.png",
+                        "landscape-1366h@2x" : "static/qdt.png",
+                        "portrait-1194h@2" : "static/qdt.png",
+                        "landscape-1194h@2x" : "static/qdt.png",
+                        "portrait-1112h@2x" : "static/qdt.png",
+                        "landscape-1112h@2x" : "static/qdt.png",
+                        "portrait-retina7" : "static/qdt.png",
+                        "landscape-retina7" : "static/qdt.png",
+                        "portrait7" : "static/qdt.png",
+                        "landscape7" : "static/qdt.png"
+                    }
+                },
+                "iosStyle" : "common"
+            }
+        }
+    },
+    /* SDK配置 */
+    "quickapp" : {},
+    /* 快应用特有相关 */
+    "mp-weixin" : {
+        /* 小程序特有相关 */
+        "usingComponents" : true,
+        "appid" : "wxbcd1cae32a548eb3",
+        "setting" : {
+            "urlCheck" : false,
+            "es6" : true,
+            "checkSiteMap" : false,
+            "minified" : true,
+            "postcss" : false
+        },
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "获取位置信息"
+            }
+        },
+        "optimization" : {
+            "subPackages" : true
+        }
+    },
+    "h5" : {
+        "title" : " ",
+        "router" : {
+            "mode" : "history"
+        },
+        "template" : "index.html",
+        "domain" : "shs.hnhcyy.com",
+        "devServer" : {
+            "port" : 8080, //端口号
+            "disableHostCheck" : true,
+            "proxy" : {
+                "/apis" : {
+                    // "target" : "https://lgapi.hnhcyy.com",  // 正式环境
+                    "target" : "http://192.168.69.219:16655", // 开发环境 
+
+                    // "target" : "https://shswxss-test.hnhcyy.com/apisc/apis-lgcs", // 测试环境
+                    "changeOrigin" : true, //是否跨域
+                    "secure" : false, // 设置支持https协议的代理
+                    "pathRewrite" : {
+                        "^/apis" : "" //匹配请求路径里面有 /api 替换成 https://testapi.kemiandan.com
+                    }
+                }
+            }
+        },
+        "sdkConfigs" : {
+            "maps" : {
+                "qqmap" : {
+                    "key" : "BKSBZ-MGVL4-5P3UQ-XMFVV-42LLS-H5FFI"
+                }
+            }
+        }
+    }
+}
+/* 小程序特有相关 */
+

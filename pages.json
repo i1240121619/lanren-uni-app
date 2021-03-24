@@ -1,0 +1,91 @@
+{
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [{
+		"path": "pages/index/index",
+		"style": {
+			"navigationStyle": "custom",
+			"navigationBarTitleText": "",
+			"navigationBarTextStyle": "white"
+
+		}
+	}, {
+		"path": "pages/login/login",
+		"style": {
+			"navigationBarTitleText": "会员登录"
+		}
+	}, {
+		"path": "pages/telLogin/telLogin",
+		"style": {
+			"navigationBarTitleText": "验证码登录"
+		}
+	}],
+	"subPackages": [{
+		"root": "pagesA",
+		"pages": [{
+				"path": "terms/userTerms",
+				"style": {
+					"navigationBarTitleText": "用户协议"
+				}
+			},
+			{
+				"path": "terms/privacyTerms",
+				"style": {
+					"navigationBarTitleText": "隐私政策"
+				}
+			},
+			{
+				"path": "webview/webview",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": true
+				}
+			}
+			// #ifdef H5
+			,
+			{
+				"path": "zt/20200320/20200320",
+				"style": {
+					"navigationBarTitleText": "",
+					"app-plus": {
+						"titleNView": {
+							"type": "transparent"
+						}
+					},
+					"h5": {
+						"titleNView": false
+					}
+				}
+			}
+			// #endif
+		]
+	}],
+	"preloadRule": {
+		"pages/index/index": {
+			"network": "all",
+			"packages": ["__APP__", "pagesA"]
+		}
+	},
+	"globalStyle": {
+		"backgroundColorTop": "#FFFFFF",
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#f8f8f8",
+		"app-plus": {
+			"bounce": "none" //可选: 是否禁止iOS回弹和Android触顶触底的弧形阴影, 默认允许 (可配在 'globalStyle')
+		},
+		"mp-alipay": {
+			"allowsBounceVertical": "NO"
+		} // 支付宝和钉钉小程序取消自带的回弹
+	},
+	"condition": { // 模式配置，仅开发期间生效
+		"current": 0, // 当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选 如：pages/index/index
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
+	}
+}

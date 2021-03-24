@@ -1,0 +1,24 @@
+{
+  "name": "lanren-uni-app",
+  "version": "3.2.0",
+  "description": "多首页标准懒人lanren-uni-app脚手架，简单易用，支持H5，微信小程序，安卓，IOS, 最接近原生的tabar",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:mp-weixin": "cross-env NODE_ENV=development UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch --minimize"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/i1240121619/lanren-uni-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "js-base64": "^2.5.2",
+    "uview-ui": "^1.8.3"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
