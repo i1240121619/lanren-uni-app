@@ -2,7 +2,7 @@
 	<view class="rowOneBig">
 		<view class="rowOneBig1">
 			<view class="rowOneBig-left">
-				<u-lazy-load img-mode="widthFix" image="http://imge.hcjk.com/ctr_cloud/hcyy-unv-app/static/Rectangle6.png" loading-img="/static/picloading.jpg" error-img="/static/picloading.jpg"></u-lazy-load>
+				<u-lazy-load img-mode="widthFix" border-radius="12" image="http://imge.hcjk.com/ctr_cloud/hcyy-unv-app/static/Rectangle6.png?2" loading-img="/static/picloading.jpg" error-img="/static/picloading.jpg"></u-lazy-load>
 			</view>
 			<view class="rowOneBig-right">
 				<view class="rowOneBig-right-t show2lines">职业药师专业</view>
@@ -50,13 +50,7 @@
 				left: 0;
 				width: 280rpx;
 				height: 156rpx;
-				background-color: #010F44;
-				border-radius: 12rpx;
 				overflow: hidden;
-				image{
-					width: 100%;
-					height: 100%;
-				}
 			}
 			.rowOneBig-right{
 				padding-left: 310rpx;

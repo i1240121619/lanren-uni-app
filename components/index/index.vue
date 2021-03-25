@@ -199,7 +199,7 @@
 		mounted() {
 			setTimeout(() => {
 				this.loading = false // 模拟请求
-			}, 2000);
+			}, 4000);
 		},
 		methods: {
 			mescrollInit() {
@@ -443,8 +443,6 @@
 					.rowTwo-item {
 						width: calc((100% - 18rpx*2)/2);
 						height: 404rpx;
-						border-radius: 12rpx;
-						background: #FAFAFA;
 						overflow: hidden;
 						margin-right: 18rpx;
 						margin-bottom: 18rpx;

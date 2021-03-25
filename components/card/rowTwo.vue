@@ -2,7 +2,7 @@
 	<view class="rowTwo">
 		<view class="rowTwo1">
 			<view class="rowTwo-up">
-				<u-lazy-load img-mode="widthFix" image="http://imge.hcjk.com/ctr_cloud/hcyy-unv-app/static/rowTwo.jpg" loading-img="/static/picloading.jpg" error-img="/static/picloading.jpg"></u-lazy-load>
+				<u-lazy-load img-mode="widthFix" border-radius="12rpx 12rpx 0 0" image="http://imge.hcjk.com/ctr_cloud/hcyy-unv-app/static/rowTwo.jpg" loading-img="/static/picloading.jpg" error-img="/static/picloading.jpg"></u-lazy-load>
 			</view>
 			<view class="rowTwo-dpwn">
 				<view class="rowTwo-dpwn-t show2lines">职业药师专业培训职业药师专业培训职业药师专业培训职业药师专业培训职业药师专业培训</view>
@@ -47,9 +47,8 @@
 			width: 100%;
 			.rowTwo-up{
 				width: 100%;
-				height: 186rpx;
+				height: 184rpx;
 				overflow: hidden;
-				background-color: #010F44;
 			}
 			.rowTwo-dpwn{
 				padding: 20rpx 12rpx;
