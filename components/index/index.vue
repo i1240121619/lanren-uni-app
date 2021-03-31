@@ -10,15 +10,14 @@
 			</view>
 			<view class="topYj"></view>
 		</view>
-		<mescroll-body ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback" :down="{auto: false}" :up="{use: true, auto: false}"
-			top="280rpx" bottom="100rpx">
+		<mescroll-body ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback"
+			:down="{auto: false}" :up="{use: false, auto: false}" top="280rpx" bottom="100rpx">
 			<view class="banner u-skeleton-fillet">
 				<swiper class="swiper" @change="changeSwiper" :autoplay="true" :circular="true" :interval="3000"
 					:duration="500">
-					<swiper-item class="swiper-item" v-for="(item, index) in 5" :key="index">
-						<u-lazy-load img-mode="widthFix"
-							image="http://imge.hcjk.com/ctr_cloud/hcyy-unv-app/static/Rectangle-7.jpg?1"
-							loading-img="/static/bannerpicloading.jpg" error-img="/static/bannerpicloading.jpg">
+					<swiper-item class="swiper-item" v-for="(item, index) in advList" :key="index">
+						<u-lazy-load img-mode="widthFix" :image="item.advImg" loading-img="/static/bannerpicloading.jpg"
+							error-img="/static/bannerpicloading.jpg">
 						</u-lazy-load>
 					</swiper-item>
 				</swiper>
@@ -26,7 +25,7 @@
 					<view class="dian flex all-center">
 						<view class="dian1 flex all-center">
 							<view class="dian1-item" :class="[swiperCurrent === index ? 'active' : '']"
-								v-for="(item, index) in 5" :key="index">
+								v-for="(item, index) in advList" :key="index">
 							</view>
 						</view>
 					</view>
@@ -96,7 +95,7 @@
 					</view>
 				</view>
 			</view>
-			<view class="box box1">
+			<!-- <view class="box box1">
 				<view class="box-padding">
 					<view class="box-t flex space-between">
 						<view class="box-t-left flex up-center u-skeleton-fillet">
@@ -120,50 +119,51 @@
 					</view>
 				</view>
 			</view>
-			<view class="line"></view>
-			<view class="box box2">
-				<view class="box-padding">
-					<view class="box-t flex space-between">
-						<view class="box-t-left flex up-center u-skeleton-fillet">
-							<view class="box-t-left-1">
-								精品推荐
+			<view class="line"></view> -->
+			<view class="zone" v-for="(item, index) in indexData" :key="index">
+				<view class="box box2">
+					<view class="box-padding">
+						<view class="box-t flex space-between">
+							<view class="box-t-left flex up-center u-skeleton-fillet">
+								<view class="box-t-left-1">
+									{{item.zoneName}}
+								</view>
 							</view>
+							<view class="box-t-right flex up-center u-skeleton-fillet"
+								v-if="item.zoneCategory === 1 || item.zoneCategory === 2 ||　item.zoneCategory === 3"
+								@click="viewAll()">
+								<view class="box-t-right1">查看全部</view>
+								<view class="box-t-right2 iconfont">&#xe613;</view>
+							</view>
+
+							<navigator class="box-t-right flex up-center u-skeleton-fillet" hover-class="none"
+								v-if="item.zoneCategory === 8" url="/pagesA/news/list">
+								<view class="box-t-right1">查看全部</view>
+								<view class="box-t-right2 iconfont">&#xe613;</view>
+							</navigator>
 						</view>
-					</view>
-					<view class="box-c">
-						<view class="box-c-banner u-skeleton-fillet">
-							<u-lazy-load image="http://imge.hcjk.com/ctr_cloud/hcyy-unv-app/static/jctjbanner.png"
-								loading-img="/static/jctjbannerloading.jpg" error-img="/static/jctjbannerloading.jpg">
-							</u-lazy-load>
-						</view>
-						<view class="rowTwo-list flex">
-							<view class="rowTwo-item u-skeleton-fillet" v-for="(item, index) in 4" :key="index">
-								<rowTwo></rowTwo>
+						<view class="box-c">
+							<!-- <view class="box-c-banner u-skeleton-fillet">
+								<u-lazy-load image="http://imge.hcjk.com/ctr_cloud/hcyy-unv-app/static/jctjbanner.png"
+									loading-img="/static/jctjbannerloading.jpg" error-img="/static/jctjbannerloading.jpg">
+								</u-lazy-load>
+							</view> -->
+							<view class="rowTwo-list flex-flow space-between flex" v-if="item.zoneCategory < 4">
+								<view class="rowTwo-item u-skeleton-fillet" v-for="(item, index1) in item.courseList"
+									:key="index1">
+									<rowTwo :item="item"></rowTwo>
+								</view>
+							</view>
+							<view class="rowOneSmall-list flex-flow space-between flex" v-if="item.zoneCategory === 8">
+								<view class="rowOneSmall-item u-skeleton-fillet" v-for="(item, index1) in item.blogList"
+									:key="index1">
+									<rowOneSmall :item="item"></rowOneSmall>
+								</view>
 							</view>
 						</view>
 					</view>
 				</view>
-			</view>
-			<view class="line"></view>
-			<view class="box box4">
-				<view class="box-padding">
-					<view class="box-t flex space-between">
-						<view class="box-t-left flex up-center u-skeleton-fillet">
-							<view class="box-t-left-1">
-								最新资讯
-							</view>
-						</view>
-						<view class="box-t-right flex up-center u-skeleton-fillet" @click="goAll">
-							<view class="box-t-right1">查看全部</view>
-							<view class="box-t-right2 iconfont">&#xe613;</view>
-						</view>
-					</view>
-					<view class="box-c">
-						<view class="rowOneSmall-list flex u-skeleton-fillet" v-for="(item, index) in 5" :key="index">
-							<rowOneSmall></rowOneSmall>
-						</view>
-					</view>
-				</view>
+				<view class="line"></view>
 			</view>
 		</mescroll-body>
 		<u-skeleton :loading="loading" :animation="true" bgColor="#FFF"></u-skeleton>
@@ -171,6 +171,7 @@
 </template>
 
 <script>
+	// zoneCategory	专区分类(1:点播;2:直播,4文库,5试卷,7博客;8:资讯,9:自定义)
 	import headerbar from "@/components/headerbar/headerbar";
 	import mescrollBody from "@/components/mescroll-diy/beibei/mescroll-body";
 	import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
@@ -191,17 +192,76 @@
 		data() {
 			return {
 				loading: true, // 是否显示骨架屏组件
-				advList: null,
+				advList: [{}],
 				swiperCurrent: 0,
 				tbj: require('@/static/tbj.jpg'),
+
+				indexData: [{
+					"zoneCategory": 1,
+					"courseList": [{}, {}]
+				}]
 			}
 		},
 		mounted() {
-			setTimeout(() => {
-				this.loading = false // 模拟请求
-			}, 4000);
+
 		},
 		methods: {
+			onPagesReachBottom(e) {
+				this.mescroll.onReachBottom();
+			},
+			onPagesScroll(e) {
+				this.mescroll.onPageScroll(e);
+			},
+			onPageshow() {
+				console.log("调用了index组件模拟的onPageshow事件")
+			},
+			onPagesLoad() {
+				this.get_AdvList_ZoneList()
+				console.log("调用了index组件模拟的onPagesLoad事件")
+			},
+			viewAll() {
+				this.$parent.switchTab('all') // 调整tabar
+			},
+			get_AdvList_ZoneList() {
+				const p1 = new Promise((resolve, reject) => {
+					let data = {
+						zoneLocation: 2
+					};
+					this.$http(`/system/api/zone/list`, 'POST', data).then((res) => {
+						if (res.code === 200) {
+							this.indexData = res.data.list
+							resolve(1)
+						} else {
+							reject(0)
+						}
+					})
+				})
+
+				const p2 = new Promise((resolve, reject) => {
+					let data = {
+						platShow: 2,
+						mobileTerminalCategory: 1,
+						advLocation: 1
+					};
+					this.$http(`/system/api/adv/list`, 'POST', data).then((res) => {
+						if (res.code === 200) {
+							this.advList = res.data.advList
+							resolve(1)
+						} else {
+							reject(0)
+						}
+					})
+				})
+
+				Promise.all([p1, p2]).then((res) => {
+					this.loading = false
+				}).catch((error) => {
+					uni.showToast({
+						title: '网络不稳定',
+						icon: 'none'
+					})
+				})
+			},
 			mescrollInit() {
 
 			},
@@ -217,26 +277,9 @@
 					}) // 模拟上拉结束请求
 				}, 1000);
 			},
-			goAll() {
-				uni.navigateTo({
-					url: '/pages/login/login',
-				});
-			},
 			changeSwiper(e) {
 				this.swiperCurrent = e.detail.current;
-			},
-			onPagesReachBottom(e) {
-				this.mescroll.onReachBottom();
-			},
-			onPagesScroll(e) {
-				this.mescroll.onPageScroll(e);
-			},
-			onPageshow() {
-				console.log("调用了index组件模拟的onPageshow事件")
-			},
-			onPagesLoad() {
-				console.log("调用了index组件模拟的onPagesLoad事件")
-			},
+			}
 		}
 	}
 </script>
@@ -418,7 +461,6 @@
 					width: 100%;
 					height: 176rpx;
 					margin-top: 32rpx;
-					margin-bottom: 32rpx;
 					overflow: hidden;
 					border-radius: 12rpx;
 				}
@@ -435,15 +477,10 @@
 				}
 
 				.rowTwo-list {
-					flex-flow: wrap;
-					-webkit-flex-flow: wrap;
-					justify-content: space-between;
-					-webkit-justify-content: space-between;
+					margin-top: 32rpx;
 
 					.rowTwo-item {
-						width: calc((100% - 18rpx*2)/2);
-						height: 404rpx;
-						overflow: hidden;
+						width: calc((100% - 18rpx*1)/2);
 						margin-right: 18rpx;
 						margin-bottom: 18rpx;
 					}
@@ -451,10 +488,16 @@
 					.rowTwo-item:nth-last-of-type(-n+2) {
 						margin-bottom: 0;
 					}
+
+					.rowTwo-item:nth-of-type(even) {
+						margin-right: 0;
+					}
 				}
 
 				.rowOneSmall-list {
-					margin-top: 32rpx;
+					.rowOneSmall-item {
+						margin-top: 32rpx;
+					}
 				}
 			}
 		}

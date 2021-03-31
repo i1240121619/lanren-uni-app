@@ -119,21 +119,21 @@
 							scrollTop
 						})
 					}
+					this.$nextTick(() => {
+						uni.pageScrollTo({
+							duration: 0, // 毫秒
+							scrollTop: this.$findItem(this.tabArr, this.currentPageName, 'pageName')
+								.scrollTop, // 位置
+							success: () => {
+								this.jumpScrollBarFinished = 1 // 定位渲染完毕
+							}
+						});
+					}) // dom渲染完成后执行 避免渲染之前定位
+					
+					console.log("======所有缓存的页面信息=======")
+					console.log(this.tabArr)
+					this.onPageshow()
 				}
-				this.$nextTick(() => {
-					uni.pageScrollTo({
-						duration: 0, // 毫秒
-						scrollTop: this.$findItem(this.tabArr, this.currentPageName, 'pageName')
-							.scrollTop, // 位置
-						success: () => {
-							this.jumpScrollBarFinished = 1 // 定位渲染完毕
-						}
-					});
-				}) // dom渲染完成后执行 避免渲染之前定位
-
-				console.log("======所有缓存的页面信息=======")
-				console.log(this.tabArr)
-				this.onPageshow()
 			}
 		}
 	}

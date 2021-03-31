@@ -3,7 +3,7 @@
 		<view class="all1">
 			<view class="test flex up-center" v-if="openPage">
 				<view class="test-1">
-					切换底部taber
+					切换底部tabar
 				</view>
 				<view class="test-2">
 					<view class="switch">

@@ -190,10 +190,12 @@
 	   background: #009EA7; 
 	}
 	.navigator-hover:active{
-		background-color: none;
+		background-color: none!important;
+		opacity: 1 !important;
 	}
 	.navigator-hover{
-		background-color: none !important;
+		background-color: none!important;
+		opacity: 1 !important;
 	}
 	.tip{
 		text-align: center;

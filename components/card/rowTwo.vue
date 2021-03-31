@@ -2,17 +2,17 @@
 	<view class="rowTwo">
 		<view class="rowTwo1">
 			<view class="rowTwo-up">
-				<u-lazy-load img-mode="widthFix" border-radius="12rpx 12rpx 0 0" image="http://imge.hcjk.com/ctr_cloud/hcyy-unv-app/static/rowTwo.jpg" loading-img="/static/picloading.jpg" error-img="/static/picloading.jpg"></u-lazy-load>
+				<u-lazy-load img-mode="widthFix" border-radius="12rpx 12rpx 0 0" :image="item.courseLogo" loading-img="/static/picloading.jpg" error-img="/static/picloading.jpg"></u-lazy-load>
 			</view>
 			<view class="rowTwo-dpwn">
-				<view class="rowTwo-dpwn-t show2lines">职业药师专业培训职业药师专业培训职业药师专业培训职业药师专业培训职业药师专业培训</view>
-				<view class="rowTwo-dpwn-t1">讲师：张三</view>
+				<view class="rowTwo-dpwn-t show2lines">{{item.courseName}}</view>
+				<view class="rowTwo-dpwn-t1">讲师：{{item.lecturerName}}</view>
 				<view class="rowTwo-dpwn-t2 flex space-between">
 					<view class="rowTwo-dpwn-t2-left flex up-center">
 						<view class="rowTwo-dpwn-t2-pic"><image src="@/static/book.png" /></view>
-						<view class="rowTwo-dpwn-t2-txt">2000人看过</view>
+						<view class="rowTwo-dpwn-t2-txt">{{item.countStudy}}人看过</view>
 					</view>
-					<view class="rowTwo-dpwn-t2-right">共50讲</view>
+					<view class="rowTwo-dpwn-t2-right">共{{item.periodTotal}}讲</view>
 				</view>
 			</view>
 		</view>
@@ -22,8 +22,12 @@
 <script>
 	export default {
 		props: {
-			title: {
-				type: String
+			item: {
+				type: [Object]
+			}
+		},
+		watch: {
+			item(val) {
 			}
 		},
 		data() {
@@ -45,6 +49,10 @@
 		width: 100%;
 		.rowTwo1{
 			width: 100%;
+			background: #FAFAFA;
+			border-radius: 12rpx;
+			height: 404rpx;
+			overflow: hidden;
 			.rowTwo-up{
 				width: 100%;
 				height: 184rpx;

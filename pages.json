@@ -36,6 +36,12 @@
 				}
 			},
 			{
+				"path": "news/list",
+				"style": {
+					"navigationBarTitleText": "恒昌资讯"
+				}
+			},
+			{
 				"path": "webview/webview",
 				"style": {
 					"navigationBarTitleText": "",
