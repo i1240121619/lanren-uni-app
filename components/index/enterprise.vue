@@ -13,8 +13,11 @@
 			};
 		},
 		methods: { 
-			onPageshow() {
-				console.log('这是企业页面')
+			_onLoad() {
+				console.log('这是企业页面_onLoad')
+			},
+			_onShow() {
+				console.log('这是企业页面_onShow')
 			},
 			goLogin() {
 			}

@@ -40,12 +40,13 @@ export default {
 			});
 		});
 	},
-	checkLogin(form, type) {
+	checkLogin(form, type, delta) { //form: 跳转回来的页面路径/ type: 跳转回来的方式/ delta: type为navigateBack才有效 返回第几步
 		if (!type) return;
 		if (!uni.getStorageSync('userToken')) {
+			console.log(type)
 			// 判断有没有登陆
-			this.$getUni()[type]({
-				url: '/pages/login/login?from=' + form + '&type=' + type
+			this.$getUni()['navigateTo']({
+				url: '/pages/login/login?from=' + form + '&type=' + type + '&delta=' + delta
 			});
 			return false;
 		}

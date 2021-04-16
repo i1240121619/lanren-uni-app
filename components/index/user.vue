@@ -81,18 +81,15 @@
 		mounted() {
 		},
 		methods: {
-			onPageshow() {
-				console.log('这是我的页面')
-				if (!uni.getStorageSync('userToken')) {
-
-				} else {
-
-				}
+			_onLoad() {
+				console.log('这是我的页面_onLoad')
+			},
+			_onShow() {
+				console.log('这是我的页面_onShow')
 			},
 			goLogin() {
 				// pageName: index:首页/course:课程/study:学习/enterprise:企业/user:我的
-				if (!this.$checkLogin(this.$Base64.encodeURI('/pages/index/index?pageName=user'), 'navigateTo'))
-					return // 判断有没有登陆，没有登陆跳转到登陆页面 一定写在onLoad生命周期函数里面
+				if (!this.$checkLogin(this.$Base64.encodeURI('#'), 'navigateBack', 1)) return // 判断有没有登陆，没有登陆跳转到登陆页面 一定写在onLoad生命周期函数里面
 			}
 		}
 	};

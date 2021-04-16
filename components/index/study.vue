@@ -13,8 +13,11 @@
 			};
 		},
 		methods: { 
-			onPageshow() {
-				console.log('这是学习页面')
+			_onLoad() {
+				console.log('这是学习页面_onLoad')
+			},
+			_onShow() {
+				console.log('这是学习页面_onShow')
 			},
 			goLogin() {
 			}

@@ -206,18 +206,18 @@
 
 		},
 		methods: {
-			onPagesReachBottom(e) {
+			_onReachBottom(e) {
 				this.mescroll.onReachBottom();
 			},
-			onPagesScroll(e) {
+			_onPagesScroll(e) {
 				this.mescroll.onPageScroll(e);
 			},
-			onPageshow() {
-				console.log("调用了index组件模拟的onPageshow事件")
-			},
-			onPagesLoad() {
+			_onLoad() {
+				console.log('这是首页_onLoad')
 				this.get_AdvList_ZoneList()
-				console.log("调用了index组件模拟的onPagesLoad事件")
+			},
+			_onShow() {
+				console.log('这是首页_onShow')
 			},
 			viewAll() {
 				this.$parent.switchTab('all') // 调整tabar

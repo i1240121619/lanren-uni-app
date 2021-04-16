@@ -55,32 +55,37 @@
 				tabArr: [] // 缓存页面基本信息 缓存过的页面 无须重新渲染  优化性能
 			}
 		},
+		onShareAppMessage() {
+			this.$refs[this.currentPageName] && this.$refs[this.currentPageName]._onShareAppMessage && this.$refs[this
+					.currentPageName]
+				._onShareAppMessage()
+		},
 		onShow() {
-			this.onPageshow()
+		
 		},
 		async onLoad(options) {
 			// await this.$onLaunched // 初始化数据
 			this.init(options)
 		},
 		onReachBottom(e) {
-			this.$refs[this.currentPageName] && this.$refs[this.currentPageName].onPagesReachBottom && this.$refs[this
+			this.$refs[this.currentPageName] && this.$refs[this.currentPageName]._onReachBottom && this.$refs[this
 					.currentPageName]
-				.onPagesReachBottom(e)
+				._onReachBottom(e)
 		},
 		onPullDownRefresh() {
-			this.$refs[this.currentPageName] && this.$refs[this.currentPageName].onPagesPullDownRefresh && this.$refs[this
+			this.$refs[this.currentPageName] && this.$refs[this.currentPageName]._onPullDownRefresh && this.$refs[this
 					.currentPageName]
-				.onPagesPullDownRefresh()
+				._onPullDownRefresh()
 		},
 		onPageScroll(e) {
-			this.$refs[this.currentPageName] && this.$refs[this.currentPageName].onPagesScroll && this.$refs[this
-				.currentPageName].onPagesScroll(e)
+			this.$refs[this.currentPageName] && this.$refs[this.currentPageName]._onPagesScroll && this.$refs[this
+				.currentPageName]._onPagesScroll(e)
 			this.setScrollTop(e)
 		},
-
+		
 		methods: {
 			init(options) {
-				if (options.pageName && options.pageName !== 'undefined') {
+				if (options && options.pageName && options.pageName !== 'undefined') {
 					this.currentPageName = options.pageName
 				} else {
 					this.currentPageName = 'index'
@@ -89,21 +94,27 @@
 					pageName: this.currentPageName,
 					scrollTop: 0
 				})
-				this.$getUserInfo() // 更新用户信息，会重新渲染页面
 				this.$nextTick(() => {
-					this.$refs[this.currentPageName] && this.$refs[this.currentPageName].onPagesLoad && this.$refs[
+					this.$refs[this.currentPageName] && this.$refs[this.currentPageName]._onLoad && this.$refs[
 							this.currentPageName]
-						.onPagesLoad(options)
+						._onLoad(options)
 				})
 			},
 			setScrollTop(e) { // 设置对应页面滚动条位置
 				this.$findItem(this.tabArr, this.currentPageName, 'pageName').scrollTop = e.scrollTop
 			},
-			onPageshow() { // 页面初始函数
+			_onLoad() { // tab页组件 onLoad事件仅执行一次
 				this.$nextTick(() => {
-					this.$refs[this.currentPageName] && this.$refs[this.currentPageName].onPageshow && this.$refs[
-							this.currentPageName]
-						.onPageshow()
+					this.$refs[this.currentPageName] && this.$refs[this.currentPageName]._onLoad && this.$refs[this
+							.currentPageName]
+						._onLoad()
+				})
+			},
+			_onShow() { // tab页组件 onShow事件切换就执行
+				this.$nextTick(() => {
+					this.$refs[this.currentPageName] && this.$refs[this.currentPageName]._onShow && this.$refs[this
+							.currentPageName]
+						._onShow()
 				})
 			},
 			switchTab(e) { // tabar页面跳转方式：this.$parent.switchTab(e)
@@ -118,6 +129,7 @@
 							pageName,
 							scrollTop
 						})
+						this._onLoad() // tab页组件 onLoad事件仅执行一次
 					}
 					this.$nextTick(() => {
 						uni.pageScrollTo({
@@ -129,10 +141,11 @@
 							}
 						});
 					}) // dom渲染完成后执行 避免渲染之前定位
-					
+		
 					console.log("======所有缓存的页面信息=======")
 					console.log(this.tabArr)
-					this.onPageshow()
+					console.log(this.currentPageName)
+					this._onShow() //tab页组件 onShow事件切换就执行
 				}
 			}
 		}

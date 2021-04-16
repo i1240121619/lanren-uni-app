@@ -38,7 +38,7 @@ uView UI 网址：https://www.uviewui.com/components/intro.html
 
 #### 支持自定义骨架屏(https://www.uviewui.com/components/skeleton.html)
 
-#### 支持组件内部的onShow/onPageScroll/onPullDownRefresh/onReachBottom事件等生命周期函数
+#### 支持组件内部的onLoad/onShow/onPageScroll/onPullDownRefresh/onReachBottom事件等生命周期函数
 
 #### pc 端首页 banner:1020x366像素/移动端banner:690x296像素/pc端 + 移动端课程封面:560x312像素(1.8:1)
 

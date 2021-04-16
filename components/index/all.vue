@@ -24,8 +24,11 @@
 			};
 		},
 		methods: {
-			onPageshow() {
-				console.log('这是全部页面')
+			_onLoad() {
+				console.log('这是全部页面_onLoad')
+			},
+			_onShow() {
+				console.log('这是全部页面_onShow')
 			},
 			change(status) { // 测试函数
 			   if (status) {
